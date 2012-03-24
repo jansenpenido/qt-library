@@ -114,3 +114,22 @@ void MainWindow::on_categoryBox_activated(int index)
         booksModel->select();
     }
 }
+
+
+/// Editar livro
+void MainWindow::on_actionEditBooks_triggered()
+{
+    int bookId = -1;
+    QModelIndex index = ui->booksView->currentIndex();
+
+    if( index.isValid() )
+    {
+        QSqlRecord record = booksModel->record( index.row() );
+        bookId = record.value(BOOK_ID).toInt();
+    }
+
+    EditBookForm f( this, bookId );
+    f.exec();
+
+    booksModel->select();
+}

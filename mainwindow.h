@@ -3,6 +3,7 @@
 
 #include "database.h"
 #include "availabledelegate.h"
+#include "editbookform.h"
 #include <QMainWindow>
 
 namespace Ui {
@@ -28,6 +29,8 @@ private slots:
     void on_searchButton_clicked();
 
     void on_categoryBox_activated(int index);
+
+    void on_actionEditBooks_triggered();
 
 private:
     Ui::MainWindow *ui;

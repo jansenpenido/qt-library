@@ -13,13 +13,16 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     database.cpp \
-    availabledelegate.cpp
+    availabledelegate.cpp \
+    editbookform.cpp
 
 HEADERS  += mainwindow.h \
     database.h \
-    availabledelegate.h
+    availabledelegate.h \
+    editbookform.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    editbookform.ui
 
 RESOURCES += \
     Icons.qrc
