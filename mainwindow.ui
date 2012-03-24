@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="booksTab">
+       <attribute name="title">
+        <string>Livros</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLineEdit" name="searchBookEdit"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="searchButton">
+            <property name="text">
+             <string>Pesquisar</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="categoryLabel">
+            <property name="text">
+             <string>Categoria:</string>
+            </property>
+            <property name="buddy">
+             <cstring>categoryBox</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="categoryBox"/>
+          </item>
+          <item>
+           <widget class="Line" name="line_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="availableOnlyBox">
+            <property name="text">
+             <string>Somente disponíveis</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableView" name="booksView"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="readersTab">
+       <attribute name="title">
+        <string>Leitores</string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="borrowingsTab">
+       <attribute name="title">
+        <string>Empréstimos</string>
+       </attribute>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuLivros">
+    <property name="title">
+     <string>Livros</string>
+    </property>
+    <addaction name="actionNewBook"/>
+    <addaction name="actionEditBooks"/>
+   </widget>
+   <widget class="QMenu" name="menuLeitor">
+    <property name="title">
+     <string>Leitor</string>
+    </property>
+    <addaction name="actionNewReader"/>
+    <addaction name="actionEditReaders"/>
+   </widget>
+   <widget class="QMenu" name="menuEmpr_stimo">
+    <property name="title">
+     <string>Empréstimo</string>
+    </property>
+    <addaction name="actionNewBorrowing"/>
+   </widget>
+   <addaction name="menuLivros"/>
+   <addaction name="menuLeitor"/>
+   <addaction name="menuEmpr_stimo"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNewBorrowing"/>
+   <addaction name="separator"/>
+   <addaction name="actionNewBook"/>
+   <addaction name="actionEditBooks"/>
+   <addaction name="separator"/>
+   <addaction name="actionNewReader"/>
+   <addaction name="actionEditReaders"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionNewBook">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/img/img/book_add_32.png</normaloff>:/img/img/book_add_32.png</iconset>
+   </property>
+   <property name="text">
+    <string>Novo livro</string>
+   </property>
+  </action>
+  <action name="actionEditBooks">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/img/img/book_search_32.png</normaloff>:/img/img/book_search_32.png</iconset>
+   </property>
+   <property name="text">
+    <string>Editar livros</string>
+   </property>
+  </action>
+  <action name="actionNewReader">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/img/img/user_add_32.png</normaloff>:/img/img/user_add_32.png</iconset>
+   </property>
+   <property name="text">
+    <string>Novo leitor</string>
+   </property>
+  </action>
+  <action name="actionEditReaders">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/img/img/user_info_32.png</normaloff>:/img/img/user_info_32.png</iconset>
+   </property>
+   <property name="text">
+    <string>Editar leitores...</string>
+   </property>
+  </action>
+  <action name="actionNewBorrowing">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/img/img/basket_add_32.png</normaloff>:/img/img/basket_add_32.png</iconset>
+   </property>
+   <property name="text">
+    <string>Novo empréstimo</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="Icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>
