@@ -15,17 +15,20 @@ SOURCES += main.cpp\
     database.cpp \
     availabledelegate.cpp \
     editbookform.cpp \
-    newbookform.cpp
+    newbookform.cpp \
+    newreaderform.cpp
 
 HEADERS  += mainwindow.h \
     database.h \
     availabledelegate.h \
     editbookform.h \
-    newbookform.h
+    newbookform.h \
+    newreaderform.h
 
 FORMS    += mainwindow.ui \
     editbookform.ui \
-    newbookform.ui
+    newbookform.ui \
+    newreaderform.ui
 
 RESOURCES += \
     Icons.qrc

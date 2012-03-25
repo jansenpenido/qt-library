@@ -166,6 +166,9 @@
    <property name="text">
     <string>Editar livros</string>
    </property>
+   <property name="toolTip">
+    <string>Editar livros...</string>
+   </property>
   </action>
   <action name="actionNewReader">
    <property name="icon">
@@ -182,6 +185,9 @@
      <normaloff>:/img/img/user_info_32.png</normaloff>:/img/img/user_info_32.png</iconset>
    </property>
    <property name="text">
+    <string>Editar leitores</string>
+   </property>
+   <property name="toolTip">
     <string>Editar leitores...</string>
    </property>
   </action>

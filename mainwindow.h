@@ -5,6 +5,7 @@
 #include "availabledelegate.h"
 #include "newbookform.h"
 #include "editbookform.h"
+#include "newreaderform.h"
 #include <QMainWindow>
 
 namespace Ui {
@@ -38,6 +39,8 @@ private slots:
     void on_actionEditBooks_triggered();
 
     void on_actionNewBook_triggered();
+
+    void on_actionNewReader_triggered();
 
 private:
     Ui::MainWindow *ui;

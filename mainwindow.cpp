@@ -175,3 +175,12 @@ void MainWindow::on_actionEditBooks_triggered()
 
     booksModel->select();
 }
+
+/// Novo leitor
+void MainWindow::on_actionNewReader_triggered()
+{
+    NewReaderForm f(this);
+    f.exec();
+
+    readersModel->select();
+}
