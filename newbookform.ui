@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>EditBookForm</class>
- <widget class="QDialog" name="EditBookForm">
+ <class>NewBookForm</class>
+ <widget class="QDialog" name="NewBookForm">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,67 +13,16 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_6">
-     <item>
-      <spacer name="horizontalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="firstButton">
-       <property name="text">
-        <string>&lt;&lt; Primeiro</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="previousButton">
-       <property name="text">
-        <string>&lt; Anterior</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="nextButton">
-       <property name="text">
-        <string>Próximo &gt;</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="lastButton">
-       <property name="text">
-        <string>Último &gt;&gt;</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_4">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
+    <widget class="QLabel" name="newBookLabel">
+     <property name="text">
+      <string>Entre com os dados do livro:</string>
+     </property>
+    </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="horizontalLayout_10">
      <item>
       <widget class="QLabel" name="titleLabel">
        <property name="text">
@@ -90,7 +39,7 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
      <item>
       <widget class="QLabel" name="authorLabel">
        <property name="text">
@@ -107,7 +56,7 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <layout class="QHBoxLayout" name="horizontalLayout_8">
      <item>
       <widget class="QLabel" name="categoryLabel">
        <property name="text">
@@ -122,7 +71,7 @@
       <widget class="QComboBox" name="categoryBox"/>
      </item>
      <item>
-      <spacer name="horizontalSpacer_5">
+      <spacer name="horizontalSpacer_6">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -137,9 +86,9 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <layout class="QHBoxLayout" name="horizontalLayout_9">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QLabel" name="descriptionLabel">
          <property name="text">
@@ -148,7 +97,7 @@
         </widget>
        </item>
        <item>
-        <spacer name="verticalSpacer">
+        <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
@@ -168,9 +117,9 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <layout class="QHBoxLayout" name="horizontalLayout_7">
      <item>
-      <spacer name="horizontalSpacer">
+      <spacer name="horizontalSpacer_3">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -183,14 +132,21 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="quitButton">
+      <widget class="QPushButton" name="saveButton">
        <property name="text">
-        <string>Sair</string>
+        <string>Salvar</string>
        </property>
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_2">
+      <widget class="QPushButton" name="cancelButton">
+       <property name="text">
+        <string>Cancelar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_4">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -209,18 +165,18 @@
  <resources/>
  <connections>
   <connection>
-   <sender>quitButton</sender>
+   <sender>cancelButton</sender>
    <signal>clicked()</signal>
-   <receiver>EditBookForm</receiver>
-   <slot>accept()</slot>
+   <receiver>NewBookForm</receiver>
+   <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>268</x>
-     <y>378</y>
+     <x>296</x>
+     <y>383</y>
     </hint>
     <hint type="destinationlabel">
-     <x>417</x>
-     <y>368</y>
+     <x>440</x>
+     <y>366</y>
     </hint>
    </hints>
   </connection>

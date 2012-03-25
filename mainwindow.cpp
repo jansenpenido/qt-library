@@ -115,6 +115,14 @@ void MainWindow::on_categoryBox_activated(int index)
     }
 }
 
+/// Novo livro
+void MainWindow::on_actionNewBook_triggered()
+{
+    NewBookForm f(this);
+    f.exec();
+
+    booksModel->select();
+}
 
 /// Editar livro
 void MainWindow::on_actionEditBooks_triggered()

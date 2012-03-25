@@ -3,6 +3,7 @@
 
 #include "database.h"
 #include "availabledelegate.h"
+#include "newbookform.h"
 #include "editbookform.h"
 #include <QMainWindow>
 
@@ -31,6 +32,8 @@ private slots:
     void on_categoryBox_activated(int index);
 
     void on_actionEditBooks_triggered();
+
+    void on_actionNewBook_triggered();
 
 private:
     Ui::MainWindow *ui;

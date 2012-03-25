@@ -25,6 +25,8 @@ EditBookForm::EditBookForm(QWidget *parent, const int id) :
 
 EditBookForm::~EditBookForm()
 {
+    delete mapper;
+    delete model;
     delete ui;
 }
 
