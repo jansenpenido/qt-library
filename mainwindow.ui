@@ -85,6 +85,11 @@
        <attribute name="title">
         <string>Leitores</string>
        </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QTableView" name="readersView"/>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="borrowingsTab">
        <attribute name="title">

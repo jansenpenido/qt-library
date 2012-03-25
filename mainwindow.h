@@ -19,10 +19,14 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+protected:
     void initializeComboBox();
 
     void initializeBookModel();
     void initializeBookView();
+
+    void initializeReadersModel();
+    void initializeReadersView();
 
 private slots:
     void on_availableOnlyBox_clicked();
@@ -39,6 +43,7 @@ private:
     Ui::MainWindow *ui;
 
     QSqlRelationalTableModel *booksModel;
+    QSqlTableModel *readersModel;
 };
 
 #endif // MAINWINDOW_H

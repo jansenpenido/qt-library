@@ -50,7 +50,11 @@ void NewBookForm::on_saveButton_clicked()
     model->setData( model->index(row, BOOK_CATEGORY), ui->categoryBox->currentIndex() + 1 );
     model->setData( model->index(row, BOOK_AVAILABLE), true );
 
-    model->submitAll();
+    if( model->submitAll() )
+    {
+        QMessageBox::information( this, QObject::trUtf8("Livro Cadastrado"),
+                                  QObject::trUtf8("Livro cadastrado com sucesso!") );
+    }
 
     this->accept();
 }

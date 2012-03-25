@@ -8,56 +8,22 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     this->setWindowTitle( QObject::trUtf8("Sistema Bibliotecário") );
+    ui->searchBookEdit->setText("Pesquisar livro...");
 
     this->initializeComboBox();
 
     this->initializeBookModel();
     this->initializeBookView();
 
-    ui->searchBookEdit->setText("Pesquisar livro...");
-
-    ui->booksView->setModel(booksModel);
+    this->initializeReadersModel();
+    this->initializeReadersView();
 }
 
 MainWindow::~MainWindow()
 {
+    delete readersModel;
     delete booksModel;
     delete ui;
-}
-
-/// Inicializar o modelo do banco de dados usado pelo tableView
-void MainWindow::initializeBookModel()
-{
-    booksModel = new QSqlRelationalTableModel(this);
-
-    booksModel->setTable("books");
-    booksModel->setRelation( BOOK_CATEGORY, QSqlRelation("categories","id","label") );
-
-    booksModel->setHeaderData( BOOK_TITLE, Qt::Horizontal, QObject::trUtf8("Título") );
-    booksModel->setHeaderData( BOOK_AUTHOR, Qt::Horizontal, QObject::trUtf8("Autor") );
-    booksModel->setHeaderData( BOOK_CATEGORY, Qt::Horizontal, QObject::trUtf8("Categoria") );
-    booksModel->setHeaderData( BOOK_AVAILABLE, Qt::Horizontal, QObject::trUtf8("Disponibilidade") );
-
-    booksModel->sort( BOOK_TITLE, Qt::AscendingOrder );
-    booksModel->select();
-}
-
-/// Inicializar o tableView
-void MainWindow::initializeBookView()
-{
-    ui->booksView->setModel( booksModel );
-
-    ui->booksView->setColumnHidden( BOOK_ID, true );
-    ui->booksView->setColumnHidden( BOOK_DESCRIPTION, true );
-    ui->booksView->resizeColumnsToContents();
-
-    ui->booksView->setSelectionMode( QAbstractItemView::SingleSelection );
-    ui->booksView->setEditTriggers( QAbstractItemView::NoEditTriggers );
-    ui->booksView->setSelectionBehavior( QAbstractItemView::SelectRows );
-    ui->booksView->horizontalHeader()->setStretchLastSection(true);             // Estica a última coluna da tabela.
-
-    ui->booksView->setItemDelegate( new QSqlRelationalDelegate(this) );         // Habilita combobox para FK...
-    ui->booksView->setItemDelegate( new AvailableDelegate(BOOK_AVAILABLE) );    // e o texto no campo 'disponível'.
 }
 
 /// Inicializar valores da caixa 'categorias'
@@ -75,7 +41,75 @@ void MainWindow::initializeComboBox()
     }
 }
 
-///
+/// Inicializa o modelo da tabela Livros
+void MainWindow::initializeBookModel()
+{
+    booksModel = new QSqlRelationalTableModel(this);
+
+    booksModel->setTable("books");
+    booksModel->setRelation( BOOK_CATEGORY, QSqlRelation("categories","id","label") );
+
+    booksModel->setHeaderData( BOOK_TITLE, Qt::Horizontal, QObject::trUtf8("Título") );
+    booksModel->setHeaderData( BOOK_AUTHOR, Qt::Horizontal, QObject::trUtf8("Autor") );
+    booksModel->setHeaderData( BOOK_CATEGORY, Qt::Horizontal, QObject::trUtf8("Categoria") );
+    booksModel->setHeaderData( BOOK_AVAILABLE, Qt::Horizontal, QObject::trUtf8("Disponibilidade") );
+
+    booksModel->sort( BOOK_TITLE, Qt::AscendingOrder );
+    booksModel->select();
+}
+
+/// Inicializa a visão da tabela Livros
+void MainWindow::initializeBookView()
+{
+    ui->booksView->setModel( booksModel );
+
+    ui->booksView->setColumnHidden( BOOK_ID, true );
+    ui->booksView->setColumnHidden( BOOK_DESCRIPTION, true );
+    ui->booksView->resizeColumnsToContents();
+
+    ui->booksView->setSelectionMode( QAbstractItemView::SingleSelection );
+    ui->booksView->setEditTriggers( QAbstractItemView::NoEditTriggers );
+    ui->booksView->setSelectionBehavior( QAbstractItemView::SelectRows );
+    ui->booksView->horizontalHeader()->setStretchLastSection(true);             // Estica a última coluna da tabela.
+
+    ui->booksView->setItemDelegate( new QSqlRelationalDelegate(this) );         // Habilita combobox para FK...
+    ui->booksView->setItemDelegate( new AvailableDelegate(BOOK_AVAILABLE) );    // e o texto no campo 'disponível'.
+
+    // Ao aplicar um duplo clique em um livro da tabela, abrir o diálogo "Editar Livro".
+    connect( ui->booksView, SIGNAL( doubleClicked(QModelIndex) ),
+             this, SLOT( on_actionEditBooks_triggered() ) );
+}
+
+/// Inicializa o modelo da tabela Leitores
+void MainWindow::initializeReadersModel()
+{
+    readersModel = new QSqlTableModel(this);
+
+    readersModel->setTable("readers");
+
+    readersModel->setHeaderData( READER_NAME, Qt::Horizontal, QObject::trUtf8("Nome") );
+    readersModel->setHeaderData( READER_EMAIL, Qt::Horizontal, QObject::trUtf8("E-mail") );
+    readersModel->setHeaderData( READER_BIRTHDATE, Qt::Horizontal, QObject::trUtf8("Data de Nascimento") );
+
+    readersModel->sort( READER_NAME, Qt::AscendingOrder );
+    readersModel->select();
+}
+
+/// Inicializa a visão da tabela Leitores
+void MainWindow::initializeReadersView()
+{
+    ui->readersView->setModel( readersModel );
+
+    ui->readersView->setColumnHidden( READER_ID, true );
+    ui->readersView->resizeColumnsToContents();
+
+    ui->readersView->setSelectionMode( QAbstractItemView::SingleSelection );
+    ui->readersView->setEditTriggers( QAbstractItemView::NoEditTriggers );
+    ui->readersView->setSelectionBehavior( QAbstractItemView::SelectRows );
+    ui->readersView->horizontalHeader()->setStretchLastSection(true);
+}
+
+/// Exibir somente livros disponíveis
 void MainWindow::on_availableOnlyBox_clicked()
 {
     if ( ui->availableOnlyBox->isChecked() ) {
@@ -87,7 +121,7 @@ void MainWindow::on_availableOnlyBox_clicked()
     }
 }
 
-///
+/// Pesquisar livro
 void MainWindow::on_searchButton_clicked()
 {
     QString str = ui->searchBookEdit->text();         // Guarda a string do campo de busca.
@@ -103,7 +137,7 @@ void MainWindow::on_searchButton_clicked()
     }
 }
 
-///
+/// Selecionar categoria
 void MainWindow::on_categoryBox_activated(int index)
 {
     if ( index == 0 ) {
