@@ -30,6 +30,9 @@ protected:
     void initializeReadersModel();
     void initializeReadersView();
 
+    void initializeBorrowingsModel();
+    void initializeBorrowingsView();
+
 private slots:
     void on_availableOnlyBox_clicked();
 
@@ -50,6 +53,7 @@ private:
 
     QSqlRelationalTableModel *booksModel;
     QSqlTableModel *readersModel;
+    QSqlRelationalTableModel *borrowingsModel;
 };
 
 #endif // MAINWINDOW_H

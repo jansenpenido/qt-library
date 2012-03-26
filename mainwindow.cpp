@@ -17,10 +17,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
     this->initializeReadersModel();
     this->initializeReadersView();
+
+    this->initializeBorrowingsModel();
+    this->initializeBorrowingsView();
 }
 
 MainWindow::~MainWindow()
 {
+    delete borrowingsModel;
     delete readersModel;
     delete booksModel;
     delete ui;
@@ -111,6 +115,38 @@ void MainWindow::initializeReadersView()
     // Ao aplicar um duplo clique em um leitor da tabela, abrir o diálogo "Editar Leitor".
     connect( ui->readersView, SIGNAL( doubleClicked(QModelIndex) ),
              this, SLOT( on_actionEditReaders_triggered() ) );
+}
+
+/// Inicializar modelo da tabela Empréstimos
+void MainWindow::initializeBorrowingsModel()
+{
+    borrowingsModel = new QSqlRelationalTableModel(this);
+
+    borrowingsModel->setTable("borrowings");
+    borrowingsModel->setRelation( BORROWING_BOOK, QSqlRelation("books", "id", "title") );
+    borrowingsModel->setRelation( BORROWING_READER, QSqlRelation("readers", "id", "name") );
+
+    borrowingsModel->setHeaderData( BORROWING_BOOK, Qt::Horizontal, QObject::trUtf8("Livro") );
+    borrowingsModel->setHeaderData( BORROWING_READER, Qt::Horizontal, QObject::trUtf8("Leitor") );
+    borrowingsModel->setHeaderData( BORROWING_LENDING_DATE, Qt::Horizontal, QObject::trUtf8("Data de Empréstimo") );
+    borrowingsModel->setHeaderData( BORROWING_LENDING_TIME, Qt::Horizontal, QObject::trUtf8("Hora do Empréstimo") );
+    borrowingsModel->setHeaderData( BORROWING_RETURN_DATE, Qt::Horizontal, QObject::trUtf8("Data de Entrega") );
+
+    borrowingsModel->sort( BORROWING_LENDING_DATE, Qt::DescendingOrder );
+    borrowingsModel->select();
+}
+
+/// Inicializar visão da tabela Empréstimos
+void MainWindow::initializeBorrowingsView()
+{
+    ui->borrowingsView->setModel( borrowingsModel );
+
+    ui->borrowingsView->resizeColumnsToContents();
+
+    ui->borrowingsView->setSelectionMode( QAbstractItemView::SingleSelection );
+    ui->borrowingsView->setEditTriggers( QAbstractItemView::NoEditTriggers );
+    ui->borrowingsView->setSelectionBehavior( QAbstractItemView::SelectRows );
+    ui->borrowingsView->horizontalHeader()->setStretchLastSection(true);
 }
 
 /// Exibir somente livros disponíveis

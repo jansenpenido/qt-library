@@ -32,6 +32,15 @@ enum {
     CATEGORY_LABEL = 1          // rótulo
 };
 
+// Empréstimos
+enum {
+    BORROWING_BOOK = 0,             // id do livro
+    BORROWING_READER = 1,           // id do leitor
+    BORROWING_LENDING_DATE = 2,     // data do empréstimo
+    BORROWING_LENDING_TIME = 3,     // hora do empréstimo
+    BORROWING_RETURN_DATE = 4       // data de devolução
+};
+
 
 /// Funções
 bool connectToDatabase();
