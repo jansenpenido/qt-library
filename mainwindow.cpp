@@ -242,3 +242,12 @@ void MainWindow::on_actionEditReaders_triggered()
 
     readersModel->select();
 }
+
+/// Novo empréstimo
+void MainWindow::on_actionNewBorrowing_triggered()
+{
+    NewBorrowingForm f(this);
+    f.exec();
+
+    borrowingsModel->select();
+}

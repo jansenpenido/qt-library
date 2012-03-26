@@ -7,6 +7,7 @@
 #include "editbookform.h"
 #include "newreaderform.h"
 #include "editreaderform.h"
+#include "newborrowingform.h"
 #include <QMainWindow>
 
 namespace Ui {
@@ -47,6 +48,8 @@ private slots:
     void on_actionNewReader_triggered();
 
     void on_actionEditReaders_triggered();
+
+    void on_actionNewBorrowing_triggered();
 
 private:
     Ui::MainWindow *ui;
