@@ -7,6 +7,8 @@ EditBookForm::EditBookForm(QWidget *parent, const int id) :
 {
     ui->setupUi(this);
 
+    this->setWindowTitle( QObject::trUtf8("Editar livro") );
+
     this->initializeModel();
 
     QSqlTableModel *boxModel = model->relationModel(BOOK_CATEGORY);
@@ -15,12 +17,11 @@ EditBookForm::EditBookForm(QWidget *parent, const int id) :
 
     this->loadBookInfos( id );
 
+    // Inicializar botões de navegação
     connect( ui->firstButton, SIGNAL( clicked() ), mapper, SLOT( toFirst() ) );
     connect( ui->nextButton, SIGNAL( clicked() ), mapper, SLOT( toNext() ) );
     connect( ui->previousButton, SIGNAL( clicked() ), mapper, SLOT( toPrevious() ) );
     connect( ui->lastButton, SIGNAL( clicked() ), mapper, SLOT( toLast() ) );
-
-    this->setWindowTitle( QObject::trUtf8("Editar livro") );
 }
 
 EditBookForm::~EditBookForm()

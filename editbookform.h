@@ -16,6 +16,7 @@ public:
     explicit EditBookForm(QWidget *parent = 0, const int id = -1);
     ~EditBookForm();
 
+protected:
     void done(int result);
 
     void initializeModel();

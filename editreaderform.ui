@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EditReaderForm</class>
+ <widget class="QDialog" name="EditReaderForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>250</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="firstButton">
+       <property name="text">
+        <string>&lt;&lt; Primeiro</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="previousButton">
+       <property name="text">
+        <string>&lt; Anterior</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="nextButton">
+       <property name="text">
+        <string>Próximo &gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="lastButton">
+       <property name="text">
+        <string>Último &gt;&gt;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="nameLabel">
+       <property name="text">
+        <string>Nome:</string>
+       </property>
+       <property name="buddy">
+        <cstring>nameEdit</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="nameEdit"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="emailLabel">
+       <property name="text">
+        <string>E-mail:</string>
+       </property>
+       <property name="buddy">
+        <cstring>emailEdit</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="emailEdit"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QLabel" name="birthdateLabel">
+       <property name="text">
+        <string>Data de Nascimento:</string>
+       </property>
+       <property name="buddy">
+        <cstring>birthdateEdit</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDateEdit" name="birthdateEdit"/>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="quitButton">
+       <property name="text">
+        <string>Sair</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>quitButton</sender>
+   <signal>clicked()</signal>
+   <receiver>EditReaderForm</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>219</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>312</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

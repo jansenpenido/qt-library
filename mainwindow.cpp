@@ -107,6 +107,10 @@ void MainWindow::initializeReadersView()
     ui->readersView->setEditTriggers( QAbstractItemView::NoEditTriggers );
     ui->readersView->setSelectionBehavior( QAbstractItemView::SelectRows );
     ui->readersView->horizontalHeader()->setStretchLastSection(true);
+
+    // Ao aplicar um duplo clique em um leitor da tabela, abrir o diálogo "Editar Leitor".
+    connect( ui->readersView, SIGNAL( doubleClicked(QModelIndex) ),
+             this, SLOT( on_actionEditReaders_triggered() ) );
 }
 
 /// Exibir somente livros disponíveis
@@ -180,6 +184,24 @@ void MainWindow::on_actionEditBooks_triggered()
 void MainWindow::on_actionNewReader_triggered()
 {
     NewReaderForm f(this);
+    f.exec();
+
+    readersModel->select();
+}
+
+/// Editar leitor
+void MainWindow::on_actionEditReaders_triggered()
+{
+    int readerId = -1;
+    QModelIndex index = ui->readersView->currentIndex();
+
+    if( index.isValid() )
+    {
+        QSqlRecord record = readersModel->record( index.row() );
+        readerId = record.value(READER_ID).toInt();
+    }
+
+    EditReaderForm f(this, readerId);
     f.exec();
 
     readersModel->select();
