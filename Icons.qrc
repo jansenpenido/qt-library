@@ -1,18 +1,11 @@
 <RCC>
-    <qresource prefix="/img">
-        <file>img/basket_add_32.png</file>
-        <file>img/basket_close_32.png</file>
-        <file>img/book_add_32.png</file>
-        <file>img/book_close_32.png</file>
-        <file>img/info_button_32.png</file>
-        <file>img/search_button_green_32.png</file>
-        <file>img/user_add_32.png</file>
-        <file>img/user_close_32.png</file>
-        <file>img/basket_chart_32.png</file>
-        <file>img/user_business_chart_32.png</file>
-        <file>img/user_info_32.png</file>
-        <file>img/users_32.png</file>
-        <file>img/book_search_32.png</file>
-        <file>img/comment_32.png</file>
+    <qresource prefix="/icons">
+        <file>icons/document-close.png</file>
+        <file>icons/document-new.png</file>
+        <file>icons/document-open-recent.png</file>
+        <file>icons/document-preview.png</file>
+        <file>icons/list-add-user.png</file>
+        <file>icons/list-remove-user.png</file>
+        <file>icons/user-group-properties.png</file>
     </qresource>
 </RCC>

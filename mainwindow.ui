@@ -21,7 +21,7 @@
        <bool>false</bool>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="booksTab">
        <attribute name="title">
@@ -139,8 +139,14 @@
    <addaction name="menuEmpr_stimo"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="iconSize">
+    <size>
+     <width>48</width>
+     <height>48</height>
+    </size>
+   </property>
    <attribute name="toolBarArea">
-    <enum>LeftToolBarArea</enum>
+    <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
     <bool>false</bool>
@@ -148,16 +154,18 @@
    <addaction name="actionNewBorrowing"/>
    <addaction name="separator"/>
    <addaction name="actionNewBook"/>
+   <addaction name="actionRemoveBook"/>
    <addaction name="actionEditBooks"/>
    <addaction name="separator"/>
    <addaction name="actionNewReader"/>
+   <addaction name="actionRemoveReader"/>
    <addaction name="actionEditReaders"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNewBook">
    <property name="icon">
     <iconset resource="Icons.qrc">
-     <normaloff>:/img/img/book_add_32.png</normaloff>:/img/img/book_add_32.png</iconset>
+     <normaloff>:/icons/icons/document-new.png</normaloff>:/icons/icons/document-new.png</iconset>
    </property>
    <property name="text">
     <string>Novo livro</string>
@@ -166,7 +174,7 @@
   <action name="actionEditBooks">
    <property name="icon">
     <iconset resource="Icons.qrc">
-     <normaloff>:/img/img/book_search_32.png</normaloff>:/img/img/book_search_32.png</iconset>
+     <normaloff>:/icons/icons/document-preview.png</normaloff>:/icons/icons/document-preview.png</iconset>
    </property>
    <property name="text">
     <string>Editar livros</string>
@@ -178,7 +186,7 @@
   <action name="actionNewReader">
    <property name="icon">
     <iconset resource="Icons.qrc">
-     <normaloff>:/img/img/user_add_32.png</normaloff>:/img/img/user_add_32.png</iconset>
+     <normaloff>:/icons/icons/list-add-user.png</normaloff>:/icons/icons/list-add-user.png</iconset>
    </property>
    <property name="text">
     <string>Novo leitor</string>
@@ -187,7 +195,7 @@
   <action name="actionEditReaders">
    <property name="icon">
     <iconset resource="Icons.qrc">
-     <normaloff>:/img/img/user_info_32.png</normaloff>:/img/img/user_info_32.png</iconset>
+     <normaloff>:/icons/icons/user-group-properties.png</normaloff>:/icons/icons/user-group-properties.png</iconset>
    </property>
    <property name="text">
     <string>Editar leitores</string>
@@ -199,10 +207,28 @@
   <action name="actionNewBorrowing">
    <property name="icon">
     <iconset resource="Icons.qrc">
-     <normaloff>:/img/img/basket_add_32.png</normaloff>:/img/img/basket_add_32.png</iconset>
+     <normaloff>:/icons/icons/document-open-recent.png</normaloff>:/icons/icons/document-open-recent.png</iconset>
    </property>
    <property name="text">
     <string>Novo empréstimo</string>
+   </property>
+  </action>
+  <action name="actionRemoveBook">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/document-close.png</normaloff>:/icons/icons/document-close.png</iconset>
+   </property>
+   <property name="text">
+    <string>Excluir livro</string>
+   </property>
+  </action>
+  <action name="actionRemoveReader">
+   <property name="icon">
+    <iconset resource="Icons.qrc">
+     <normaloff>:/icons/icons/list-remove-user.png</normaloff>:/icons/icons/list-remove-user.png</iconset>
+   </property>
+   <property name="text">
+    <string>Excluir leitor</string>
    </property>
   </action>
  </widget>
