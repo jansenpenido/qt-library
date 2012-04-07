@@ -126,9 +126,9 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="quitButton">
+      <widget class="QPushButton" name="removeButton">
        <property name="text">
-        <string>Sair</string>
+        <string>Excluir leitor</string>
        </property>
       </widget>
      </item>
@@ -150,22 +150,5 @@
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>quitButton</sender>
-   <signal>clicked()</signal>
-   <receiver>EditReaderForm</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>219</x>
-     <y>219</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>312</x>
-     <y>216</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

@@ -22,6 +22,9 @@ protected:
     void initializeModel();
     void loadReaderInfos(int id);
 
+private slots:
+    void on_removeButton_clicked();
+
 private:
     Ui::EditReaderForm *ui;
 

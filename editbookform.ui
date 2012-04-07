@@ -183,9 +183,9 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="quitButton">
+      <widget class="QPushButton" name="removeButton">
        <property name="text">
-        <string>Sair</string>
+        <string>Excluir livro</string>
        </property>
       </widget>
      </item>
@@ -207,22 +207,5 @@
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>quitButton</sender>
-   <signal>clicked()</signal>
-   <receiver>EditBookForm</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>268</x>
-     <y>378</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>417</x>
-     <y>368</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

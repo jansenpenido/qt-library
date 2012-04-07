@@ -120,6 +120,7 @@
     </property>
     <addaction name="actionNewBook"/>
     <addaction name="actionEditBooks"/>
+    <addaction name="actionRemoveBook"/>
    </widget>
    <widget class="QMenu" name="menuLeitor">
     <property name="title">
@@ -127,6 +128,7 @@
     </property>
     <addaction name="actionNewReader"/>
     <addaction name="actionEditReaders"/>
+    <addaction name="actionRemoveReader"/>
    </widget>
    <widget class="QMenu" name="menuEmpr_stimo">
     <property name="title">

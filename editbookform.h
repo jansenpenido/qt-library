@@ -24,6 +24,8 @@ protected:
 
 private slots:
 
+    void on_removeButton_clicked();
+
 private:
     Ui::EditBookForm *ui;
 

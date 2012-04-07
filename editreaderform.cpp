@@ -69,3 +69,21 @@ void EditReaderForm::loadReaderInfos(int id)
         mapper->toFirst();
     }
 }
+
+/// Excluir leitor
+void EditReaderForm::on_removeButton_clicked()
+{
+    int row = mapper->currentIndex();
+    QString readerName = model->record(row).field(READER_NAME).value().toString();
+
+    int reply = QMessageBox::question( this, "Excluir leitor",
+                                       "Tem certeza que deseja excluir o leitor <i>" + readerName + "</i> ?",
+                                       QMessageBox::Yes | QMessageBox::No);
+
+    if( reply == QMessageBox::Yes )
+    {
+        model->removeRow(row);
+        mapper->submit();
+        mapper->setCurrentIndex( qMin(row, model->rowCount() - 1) );
+    }
+}

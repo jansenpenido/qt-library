@@ -79,3 +79,21 @@ void EditBookForm::loadBookInfos( int id )
         mapper->toFirst();
     }
 }
+
+/// Excluir livro
+void EditBookForm::on_removeButton_clicked()
+{
+    int row = mapper->currentIndex();
+    QString bookName = model->record(row).field(BOOK_TITLE).value().toString();
+
+    int reply = QMessageBox::question( this, "Excluir livro",
+                                       "Tem certeza que deseja excluir o livro <i>" + bookName + "</i> ?",
+                                       QMessageBox::Yes | QMessageBox::No);
+
+    if( reply == QMessageBox::Yes )
+    {
+        model->removeRow(row);
+        mapper->submit();
+        mapper->setCurrentIndex( qMin(row, model->rowCount() - 1) );
+    }
+}
